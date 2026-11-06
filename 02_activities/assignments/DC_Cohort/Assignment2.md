@@ -57,7 +57,11 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Architecture 1: Type 1 Slowly Changing Dimension (Overwrite)
+The CUSTOMER_ADDRESS table contains: customer_id, street_address, city, province, postal_code, country. Each customer has one address record. When a customer changes their address, the existing record is overwritten with the new address. This is a Type 1 Slowly Changing Dimension because historical address information is not retained.
+
+Architecture 2: Type 2 Slowly Changing Dimension (Retain History)
+The CUSTOMER_ADDRESS table contains: customer_address_id, customer_id, street_address, city, province, postal_code, country,effective_start_date, effective_end_date, is_current. When a customer changes their address, the previous record is marked as no longer current, and a new record is inserted with the updated address. This is a Type 2 Slowly Changing Dimension (SCD) because it preserves historical address records.
 ```
 
 ***
@@ -192,5 +196,14 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+
+Vicki Boykis's article highlights an important issue in artificial intelligence: although machine learning systems appear to operate automatically, they are fundamentally built upon human labour, decisions, and judgments. This raises several ethical concerns related to labour, bias, accountability, and the relationship between technology and society.
+
+First, the invisible human labour behind AI raises questions about fairness and recognition. As the article explains, large datasets such as ImageNet rely on people manually labeling millions of images. However, these contributions are often overlooked when discussing technological achievements. Workers involved in data annotation may receive limited compensation and recognition, despite their essential contributions. This raises questions about who benefits economically from AI development and whether the people supporting these systems are treated fairly. With the rapid development of large language models, similar concerns extend to data annotation, human feedback, and content moderation. In particular, workers reviewing harmful or disturbing content may experience psychological distress, making appropriate compensation and working conditions important ethical responsibilities.
+
+Second, human involvement introduces potential biases into AI systems. The article demonstrates that datasets are not entirely objective because humans make decisions about how information should be categorized and labeled. These decisions may reflect cultural assumptions, stereotypes, and social inequalities. For example, categories that appear meaningful in one cultural context may be inappropriate or misleading in another. When AI models learn from such datasets, they may reproduce or even amplify existing biases. This is particularly concerning when AI systems are applied to sensitive areas such as education, employment, healthcare, and psychological assessment. Therefore, evaluating AI fairness requires examining not only model performance but also how training data are collected, labeled, and represented.
+
+Third, the article raises broader questions about accountability and the relationship between technology and society. AI systems are often described as independent or intelligent technologies, which may obscure the human decisions embedded in their development. However, developers and organizations remain responsible for decisions about data selection, labeling standards, and model deployment. As LLMs become increasingly integrated into everyday life, these responsibilities become even more important. Transparency about training processes, human involvement, and model limitations can help users better understand the systems they rely on.
+
+Overall, I think the most important message of this article is that AI should not be understood as separate from human society. Rather, it reflects the knowledge, values, limitations, and inequalities of the people and institutions involved in its development. Responsible AI development therefore requires not only technical improvements but also attention to labour rights, cultural diversity, fairness, and human accountability.
 ```
