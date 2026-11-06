@@ -158,7 +158,7 @@ with a UNION binding them. */
 WITH daily_sales AS (
     SELECT
         market_date,
-        SUM(quantity * cost_to_customer_per_qty) AS total_sales
+        SUM(quantity * cost_per_quantity) AS total_sales
     FROM customer_purchases
     GROUP BY market_date
 ),
